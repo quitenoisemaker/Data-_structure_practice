@@ -6,7 +6,8 @@ function binary_search($list, $target){
 	$last=count($list)-1;
 
 	while ( $first<= $last) {
-		$mid=(int) (($first + $last)/2);
+		
+		$mid=(int)(($first + $last)/2);
 
 		if ($list[$mid]==$target) {
 			return $target ." Found";
@@ -16,10 +17,11 @@ function binary_search($list, $target){
 			$last=$mid-1;
 		}
 	}
+
+
 	return "Number not found";
 }
 
-
-$item=range(0, 10);
-$number=5;
-echo binary_search($item, 11);
+// arrays must be sorted
+$item=[2,3,4,6,7,8,9,12];
+echo binary_search($item, 13);
