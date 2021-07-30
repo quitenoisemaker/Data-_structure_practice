@@ -25,3 +25,13 @@ function binary_search($list, $target){
 // arrays must be sorted
 $item=[2,3,4,6,7,8,9,12];
 echo binary_search($item, 13);
+
+
+
+$nu=[];
+
+$nu=array_merge([2,6,8]);
+
+
+print_r(count($nu));
+print_r($nu);
