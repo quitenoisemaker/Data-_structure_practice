@@ -74,20 +74,78 @@ else{
 }
 
 
-function primeNum($number){
+// Write a function that accepts an array of positive integers and returns an array of all prime numbers from the given array. A prime number is a number that is only divisible by 1 and itself.
 
 
-	for ($i = 2; $i <= sqrt($number); $i++){
-		$a=$number % 2;//check if its even
-		if ($number % $i == 0) {
-			echo "Not a prime Number";				
-		}else{
-			echo "The number is a prime number";
-		}
-	}
+function PrimeArray(array $numbers){
+	
+foreach ($numbers as $key => $value) {
+	
+	if (($value % 2 == 1) && (2 <= sqrt($value))){
+            $new[]=$value;
+        }
+}
+return $new;
 }
 
-primeNum(15);
+$numbers=[5,4,19,7,89,3,67,15];
+print_r(PrimeArray($numbers));
 
 
 
+echo "<br>";
+
+/*4.	Create a password validator function that takes in the password as its argument and returns an integer value you can evaluate to determine the password strength. Using the following validators:
+0 -> very weak e.g. a password with only strings
+1 -> weak e.g. a password with only numbers
+2 -> strong e.g. a password containing strings and numbers
+3 -> very strong e.g. a password containing strings, numbers and special characters (!,@,#,$,%, etc) */
+
+
+function validatorCkecker($arg){
+
+		$test=strtolower($arg);
+	 $test=str_split($test);
+	 $numbers = [1,2,3,4,5,6,7,8,9];
+	 $alpha=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+$string=false;
+$numb= false;
+$symbol= false;
+
+for ($i = 0; $i <= count($test)-1; $i++) {
+    if (in_array($test[$i], $numbers)) {
+    	
+    	$numb= true;
+    }elseif (in_array($test[$i], $alpha)) {
+    	# code...
+    	$string=true;
+    }else{
+    	$symbol=true;
+    }
+   
+}
+
+if ($string && !$numb && !$symbol) {
+	# code...
+	return '0 -> very weak e.g. a password with only strings';
+}elseif ($numb && !$string && !$symbol) {
+	# code...
+	return '1 -> weak e.g. a password with only numbers';
+}elseif ($numb && $string && !$symbol) {
+	# code...
+
+	return '2 -> strong e.g. a password containing strings and numbers';
+}elseif ($numb && $string && $symbol) {
+	# code...
+	return '3 -> very strong e.g. a password containing strings, numbers and special characters (!,@,#,$,%, etc)';
+}
+
+}
+
+$test='223';
+
+
+print_r (validatorCkecker($test));
+
+echo "<br>";echo "<br>";
