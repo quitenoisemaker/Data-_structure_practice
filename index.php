@@ -109,9 +109,9 @@ function validatorCkecker($arg){
 	 $numbers = [1,2,3,4,5,6,7,8,9];
 	 $alpha=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-$string=false;
-$numb= false;
-$symbol= false;
+	$string=false;
+	$numb= false;
+	$symbol= false;
 
 for ($i = 0; $i <= count($test)-1; $i++) {
     if (in_array($test[$i], $numbers)) {
@@ -149,3 +149,66 @@ $test='223';
 print_r (validatorCkecker($test));
 
 echo "<br>";echo "<br>";
+
+
+/*
+6.	Write a function that takes two parameters, an array and some number. The function should determine whether any three numbers in the array add up to the number. If it does, the function should return the numbers as an array. If it doesn’t, the function should return -1.
+Example
+Input: [1, 2, 3, 4, 5, 6], 6
+Output: [1, 2, 3]
+*/
+
+function ArrNum($a, $n){
+
+	$pos=0;
+	//$i=0;
+	$count=count($a)-1;
+    
+	for ($i = 0; 3 <= $count; $i++) {
+
+	//while ( $count>3) {
+		# code...
+		$newAa=array_slice($a, $i, 3);
+		$new= ArrNum($newAa, $n);
+			//$i++;
+		return $newAa;
+	}
+
+
+// while ( $count>3) {
+// 	# code...
+// 	$first=array_slice($a, $i, 3);
+
+// 			$pos=array_sum($first);
+// 			if ($pos===$n) {
+// 					# code...
+// 					return $first;
+// 				}else{
+// 					$i++;
+
+// 					// $first2=array_slice($a, $i, 3);
+// 					// $pos2=array_sum($first2);
+
+
+// 					// if ($pos2===$n) {
+// 					// 	# code...
+
+// 					// 	return $first2;
+// 					// }
+
+// 					$new=$a[$i];
+
+// 					array_slice($arr, 0, $mid)
+// 					return ArrNum($new, $n);
+
+// 				}
+
+// 				return 'not found';
+// }
+			
+		//}
+}
+
+$arr=[1,2,4,4,9];
+$num=7;
+print_r (ArrNum($arr, $num));
